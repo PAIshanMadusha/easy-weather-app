@@ -87,8 +87,8 @@ class DisplayWeather extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 gradient: LinearGradient(
                   colors: [
-                    const Color.fromARGB(255, 224, 255, 84),
-                    const Color.fromARGB(255, 204, 255, 85),
+                    const Color.fromARGB(255, 252, 255, 60),
+                    const Color.fromARGB(255, 255, 211, 116),
                   ],
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,

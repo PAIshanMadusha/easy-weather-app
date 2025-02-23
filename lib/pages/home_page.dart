@@ -1,11 +1,13 @@
 import 'package:easy_weather_app/models/weather_model.dart';
 import 'package:easy_weather_app/pages/search_weather_page.dart';
+import 'package:easy_weather_app/providers/theme_provider.dart';
 import 'package:easy_weather_app/services/weather_service.dart';
 import 'package:easy_weather_app/utils/app_constant.dart';
 import 'package:easy_weather_app/utils/app_text_style.dart';
 import 'package:easy_weather_app/widgets/display_weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,7 +31,10 @@ class _HomePageState extends State<HomePage> {
         _weather = weather;
       });
     } catch (error) {
-      throw Exception("Error: $error");
+      debugPrint("Error fetching weather: $error");
+      setState(() {
+        _weather = null; // Or an error state variable
+      });
     }
   }
 
@@ -45,7 +50,21 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Easy Weather", style: AppTextStyle.mainTitle),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.dark_mode, size: 38)),
+          IconButton(
+            onPressed: () {
+              Provider.of<ThemeProvider>(
+                context,
+                listen: false,
+              ).toggleTheme(Theme.of(context).brightness != Brightness.dark);
+            },
+            icon: Icon(
+              Theme.of(context).brightness == Brightness.dark
+                  ? Icons.light_mode
+                  : Icons.dark_mode,
+
+              size: 35,
+            ),
+          ),
         ],
       ),
       body:

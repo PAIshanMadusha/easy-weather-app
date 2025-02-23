@@ -75,19 +75,6 @@ class _SearchWeatherPageState extends State<SearchWeatherPage> {
                     onPressed: _searchWeather,
                     icon: Icon(Icons.search, size: 30, color: Colors.blueGrey),
                   ),
-                  fillColor: const Color.fromARGB(255, 226, 242, 250),
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                      color: const Color.fromARGB(255, 147, 170, 180),
-                      width: 2,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.blueGrey, width: 2),
-                  ),
                 ),
                 onSubmitted: (value) => _searchWeather(),
               ),
