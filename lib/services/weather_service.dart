@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:easy_weather_app/models/weather_model.dart';
 import 'package:easy_weather_app/services/get_location_service.dart';
 import 'package:http/http.dart' as http;
@@ -29,7 +28,7 @@ class WeatherService {
   }
 
   //Get the Weather from the Current Location
-  Future<WeatherModel> getWeatherFromLocation() async {
+  Future<WeatherModel> getWeatherByLocation() async {
     try {
       final location = GetLocationService();
 
